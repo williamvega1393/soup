@@ -4,9 +4,9 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class SoupController {
-    private int n;
-    private int m;
-    private int k;
+    private int n; // ROWS
+    private int m; // COLUMNS
+    private int k; // WORDS
     private Scanner scanner;
     private char soup[][];
     private String words[];
@@ -43,7 +43,7 @@ public class SoupController {
         }
     }
 
-    public void countHorizontalI() {
+    public void countHorizontalL() {
         for (int i = 0; i < k; i++) {
             for (int j = 0; j < n; j++) {
                 String row = "";
@@ -51,6 +51,152 @@ public class SoupController {
                     row += soup[j][l];
                 }
                 if (row.contains(words[i])) {
+                    wordsCount[i]++;
+                }
+            }
+        }
+    }
+
+    public void countHorizontalR() {
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < n; j++) {
+                String row = "";
+                for (int l = m - 1; l >= 0; l--) {
+                    row += soup[j][l];
+                }
+                if (row.contains(words[i])) {
+                    wordsCount[i]++;
+                }
+            }
+        }
+    }
+
+    public void countVerticalT() {
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < n; j++) {
+                String row = "";
+                for (int l = 0; l < m; l++) {
+                    row += soup[l][j];
+                }
+                if (row.contains(words[i])) {
+                    wordsCount[i]++;
+                }
+            }
+        }
+    }
+
+    public void countVerticalB() {
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < n; j++) {
+                String row = "";
+                for (int l = m - 1; l >= 0; l--) {
+                    row += soup[l][j];
+                }
+                if (row.contains(words[i])) {
+                    wordsCount[i]++;
+                }
+            }
+        }
+    }
+
+    public void countDiagonalLT() {
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < m; j++) {
+                String row = "";
+                for (int l = j; l < m; l++) {
+                    row += soup[l - j][l];
+                }
+                if (row.contains(words[i])) {
+                    wordsCount[i]++;
+                }
+            }
+        }
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < n; j++) {
+                String row = "";
+                for (int l = j; l < n; l++) {
+                    row += soup[l][l - j];
+                }
+                if (row.contains(words[i]) && j != 0) {
+                    wordsCount[i]++;
+                }
+            }
+        }
+    }
+
+    public void countDiagonalRB() {
+        for (int i = 0; i < k; i++) {
+            int aux = 0;
+            for (int j = m - 1; j >= 0; j--) {
+                String row = "";
+                for (int l = j; l >= 0; l--) {
+                    row += soup[l + aux][l];
+                }
+                if (row.contains(words[i])) {
+                    wordsCount[i]++;
+                }
+                aux++;
+            }
+        }
+        for (int i = 0; i < k; i++) {
+            int aux = 0;
+            for (int j = m - 1; j >= 0; j--) {
+                String row = "";
+                for (int l = j; l >= 0; l--) {
+                    row += soup[l][l + aux];
+                }
+                if (row.contains(words[i]) && j != m - 1) {
+                    wordsCount[i]++;
+                }
+                aux++;
+            }
+        }
+    }
+
+    public void countDiagonalRT() {
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < m; j++) {
+                String row = "";
+                for (int l = j; l < m; l++) {
+                    row += soup[l - j][m - 1 - l];
+                }
+                if (row.contains(words[i])) {
+                    wordsCount[i]++;
+                }
+            }
+        }
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < m; j++) {
+                String row = "";
+                for (int l = j; l < m; l++) {
+                    row += soup[l][m - 1 - l + j];
+                }
+                if (row.contains(words[i]) && j != 0) {
+                    wordsCount[i]++;
+                }
+            }
+        }
+    }
+
+    public void countDiagonalBR() {
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < m; j++) {
+                String row = "";
+                for (int l = j; l < m; l++) {
+                    row += soup[m - 1 - l][l - j];
+                }
+                if (row.contains(words[i])) {
+                    wordsCount[i]++;
+                }
+            }
+        }
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < m; j++) {
+                String row = "";
+                for (int l = j; l < m; l++) {
+                    row += soup[m - 1 - l + j][l];
+                }
+                if (row.contains(words[i]) && j != 0) {
                     wordsCount[i]++;
                 }
             }

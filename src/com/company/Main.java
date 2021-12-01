@@ -11,7 +11,14 @@ public class Main {
     public static void main(String[] args) {
         SoupController soupController = new SoupController();
         soupController.printMatrix();
-        soupController.countHorizontalI();
+        soupController.countHorizontalL();
+        soupController.countHorizontalR();
+        soupController.countVerticalT();
+        soupController.countVerticalB();
+        soupController.countDiagonalLT();
+        soupController.countDiagonalRB();
+        soupController.countDiagonalRT();
+        soupController.countDiagonalBR();
         soupController.printResult();
     }
 }
