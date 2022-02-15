@@ -15,9 +15,30 @@ public class SoupController {
     private ArrayList<String> aux;
 
     public SoupController() {
+        //7
+        //7
+
+        // csatira
+        // ujpoivs
+        // eeuobco
+        // nupgeti
+        // tsoolmc
+        // oodedaa
+        // idilior
+
+        // epodo
+        // satira
+        // didilio
+        // cuento
+        // juglar
+        // poema
+        System.out.println("Ingresar datos");
         scanner = new Scanner(System.in);
+        System.out.print("Ingresar n: ");
         n = Integer.parseInt(scanner.nextLine());
+        System.out.print("Ingresar m: ");
         m = Integer.parseInt(scanner.nextLine());
+        System.out.println("Ingresar linea por linea");
         soup = new char[n][m];
         for (int i = 0; i < n; i++) {
             String row = scanner.nextLine();
@@ -25,7 +46,9 @@ public class SoupController {
                 soup[i][j] = row.charAt(j);
             }
         }
+        System.out.println("Cantidad de palabras");
         k = Integer.parseInt(scanner.nextLine());
+        System.out.println("Palabras linea por linea");
         words = new String[k];
         wordsCount = new int[k];
         for (int i = 0; i < k; i++) {
